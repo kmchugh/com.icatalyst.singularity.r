@@ -38,8 +38,15 @@ test_that('it can create a javascript message handler for shiny', {
   sut = com.icatalyst.singularity::Singularity$new('a client id', 'a client secret', 'a client key')
   sut$shiny_tags(
     tags = list(
-      head = function(a){},
-      script = function(a){}
+      head = function(a){
+        return(a)
+      },
+      script = function(a){
+        print(a)
+        expect_equal(
+          'Shiny.addCustomMessageHandler(\'singularity_redirect\', function(message) {window.location = \'https://www.testing.test.com\';});',
+          sut$shiny_redirect_code)
+      }
     ),
     redirect_uri = 'https://www.testing.test.com'
   )
