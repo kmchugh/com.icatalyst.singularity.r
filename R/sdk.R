@@ -2,6 +2,7 @@
 #'
 #' Allows configuration of the interactions between this client and the
 #' Singularity Oauth 2.0 server
+#' @export
 Singularity <- R6::R6Class("Singularity",
   lock_objects = FALSE,
 
