@@ -88,7 +88,7 @@ Singularity <- R6::R6Class("Singularity",
     #'   order to force the trusted login flow
     shiny_tags = function(tags, redirect_uri) {
       private$login_redirect_uri <- redirect_uri
-      tags$head(tags$script(private$login_redirect_uri))
+      tags$head(tags$script(self$shiny_redirect_code))
     },
 
     #' @description
