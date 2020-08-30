@@ -1,0 +1,6 @@
+{
+  "server_uri" : "https://api.singularity.icatalyst.com",
+  "endpoints": {
+    "token" : "/token"
+  }
+}
