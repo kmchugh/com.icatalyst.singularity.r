@@ -26,7 +26,7 @@ Singularity <- R6::R6Class("Singularity",
     shiny_redirect_code = function() {
       paste('Shiny.addCustomMessageHandler(\'',
         private$message_handler,
-        '\', function(message) {window.location = \'',
+        '\', function(message) {(window.top || window).location = \'',
         private$login_redirect_uri,
         '\';});', sep='')
     }
