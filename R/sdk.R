@@ -20,7 +20,7 @@ Singularity <- R6::R6Class("Singularity",
 
 
   active = list(
-    #' @field
+    #' @description
     #' the custom message handler created to allow redirection from shiny
     shiny_redirect_code = function() {
       paste('Shiny.addCustomMessageHandler(\'',
@@ -83,7 +83,7 @@ Singularity <- R6::R6Class("Singularity",
     #' This is specifically for shiny
     #' @param tags the shiny tags object
     shiny_tags = function(tags) {
-      tags$head(tags$script(active$shiny_redirect_code))
+      tags$head(tags$script(self$shiny_redirect_code))
     },
 
     #' @description
